@@ -12,11 +12,14 @@ import { FaBars } from 'react-icons/fa';
 import { MdOutlineClose } from "react-icons/md";
 import user3 from '../assets/icons/grouped avatars.svg'
 import Header from './Header';
+import { auth } from "../config/firebase";
 
-const Dashboard = () => {
+const Dashboard = ({setIsAuth}) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
+  
   return (
-    <div className="flex bg-amber-200">
+    <div className="flex">
       
       <div className={`${isSidebarOpen? 'block' : 'hidden'} navbar2`}>
         <Navbar 

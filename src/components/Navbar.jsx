@@ -12,10 +12,12 @@ import profile from '../assets/profile.svg'
 import logo from '../assets/icons/onDark.svg'
 import { MdOutlineClose } from "react-icons/md";
 import { ChevronsUpDown } from 'lucide-react';
+import { auth } from "../config/firebase";
 
 
 
 const Navbar = ({setIsSidebarOpen, isSidebarOpen}) => {
+  console.log(auth.currentUser);
 
   return (
     <aside className="navbar min-w-80 min-h-screen bg-[#3C38CE] text-white p-5 px-8 flex flex-col">
@@ -90,8 +92,8 @@ const Navbar = ({setIsSidebarOpen, isSidebarOpen}) => {
       
       {/* User Profile */}
       <div className="mt-6 flex items-center cursor-pointer">
-        <div className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center mr-3"> <img src={profile} alt="" /> </div>
-        <p className="flex-1">Jane Smith</p>
+        <div className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center mr-3"> <img src={auth.currentUser.photoURL} alt="user" className="rounded-full" /> </div>
+        <p className="flex-1">{auth.currentUser.displayName}</p>
         <ChevronsUpDown size={20} />
       </div>
     </aside>
@@ -99,3 +101,4 @@ const Navbar = ({setIsSidebarOpen, isSidebarOpen}) => {
 };
 
 export default Navbar;
+

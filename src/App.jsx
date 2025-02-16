@@ -1,16 +1,19 @@
+import React, { useState } from "react";
 import './App.css'
 import Dashboard from './components/Dashboard'
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
 import Login from './components/Login/Login';
 import SubDashboard from './components/DashboardComponents/subDash';
+import Cookies from 'universal-cookie'
 
 function App() {
+  const cookies = new Cookies()
+  const [isAuth, setIsAuth] = useState(cookies.get('auth-token'))
 
   return (
     <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/" element={!isAuth? <Login setIsAuth={setIsAuth} /> : <Dashboard setIsAuth={setIsAuth} />}/>
           <Route path="/dash" element={<SubDashboard />} />
         </Routes>
     </BrowserRouter>
