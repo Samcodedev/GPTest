@@ -3,10 +3,9 @@ import mark1 from '../../assets/icons/mark1.svg'
 import mark2 from '../../assets/icons/mark2.svg'
 
 const ProgressCard = ({ title, subtitle, timeAgo, type }) => {
-  const isPrimary = type === 'primary';
   
   return (
-    <div className="w-full h-fit sm:h-full p-4 sm:p-6 rounded-xl bg-white shadow-sm">
+    <div className={` ${type==='yellow'? 'bg-[#FFF8E1]' : 'bg-[#E1F5FD]'} w-full h-fit sm:h-full p-4 sm:p-6 rounded-xl flex flex-col justify-between shadow-sm`}>
       <div>
         {
           type==='yellow'?
