@@ -1,0 +1,35 @@
+
+@media screen and (max-width: 1505px) {
+    .UserProfile{
+        display: none;
+    }
+    
+}
+
+@media screen and (max-width: 1139px) {
+    .first-card{
+        flex-direction: column;
+    }
+    .first-card .exam-card{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 855px) {
+    .navbar2{
+        position: absolute;
+        z-index: 100;
+    }
+    .header{
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 639px) {
+    .lastdiv{
+        flex-direction: column;
+    }
+    .groupinfo{
+        flex-direction: column;
+    }
+}
